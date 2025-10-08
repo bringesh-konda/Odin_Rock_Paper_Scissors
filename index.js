@@ -31,7 +31,7 @@ function playRound() {
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
 
-    console.log(`humanChoice: ${humanChoice}, computerChoice: ${computerChoice}`);
+    // console.log(`humanChoice: ${humanChoice}, computerChoice: ${computerChoice}`);
     if(humanChoice === 'rock') {
         if(computerChoice === 'scissors') {
             humanScore++;
