@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.buttons {
+    height: 60vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    height: 100px;
+    width: 200px;
+}
+
+.left, .right, .final-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.result {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+}
+
+.final-result {
+    flex: 1;
+}

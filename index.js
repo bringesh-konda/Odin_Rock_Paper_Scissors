@@ -4,34 +4,33 @@ let humanScore = 0;
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if(choice === 0) {
-        return 'rock';
+        return "rock";
     }
     else if(choice === 1) {
-        return 'paper';
+        return "paper";
     }
     else {
-        return 'scissors';
+        return "scissors";
     }
 }
 
 function getHumanChoice() {
     let choice = prompt("Enter your choice\n 0: Rock\n 1: Paper\n 2: Scissors");
     if(choice === 0) {
-        return 'rock';
+        return "rock";
     }
     else if(choice === 1) {
-        return 'paper';
+        return "paper";
     }
     else {
-        return 'scissors';
+        return "scissors";
     }
 }
 
-function playRound() {
-    let humanChoice = getHumanChoice();
-    let computerChoice = getComputerChoice();
+function playRound(humanChoice, computerChoice) {
+    // let humanChoice = getHumanChoice();
+    // let computerChoice = getComputerChoice();
 
-    // console.log(`humanChoice: ${humanChoice}, computerChoice: ${computerChoice}`);
     if(humanChoice === 'rock') {
         if(computerChoice === 'scissors') {
             humanScore++;
@@ -56,7 +55,42 @@ function playRound() {
             computerScore++;
         }
     }
+
+
+    const humanSlot = document.querySelector(".human-score");
+    const computerSlot = document.querySelector(".computer-score");
+
+    humanSlot.textContent = humanScore;
+    computerSlot.textContent = computerScore;
+
+    if(humanScore === 5) {
+        humanScore = computerScore = 0;
+
+        const resDiv = document.querySelector(".final-result-text");
+        
+        
+        resDiv.textContent = "Human Wins";
+
+        humanSlot.textContent = humanScore;
+        computerSlot.textContent = computerScore;
+    }
+    else if (computerScore === 5) {
+        humanScore = computerScore = 0;
+        const resDiv = document.querySelector(".final-result-text");
+        
+        resDiv.textContent = "Computer Wins";
+
+        humanSlot.textContent = humanScore;
+        computerSlot.textContent = computerScore;
+    }   
 }
+
+const buttonDiv = document.querySelector('.buttons');
+buttonDiv.addEventListener('click', (e) => {
+    const humanChoice = e.target.value;
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+});
 
 function playGame() {
     let noOfRounds = 5;
@@ -78,4 +112,4 @@ function playGame() {
     }
 }
 
-playGame();
+// playGame();
